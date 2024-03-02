@@ -1,0 +1,83 @@
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI';
+    overflow: hidden;
+}
+body {
+    background-image: url("bg-img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 3em;
+    width: auto;
+    align-items: center;
+    position: relative;
+    top: 5em;
+}
+
+.decide-button {
+    border: none;
+    padding: 10px;
+    width: 15em;
+    margin: 1em;
+    font-size: 20px;
+    background-color: rgb(71, 71, 255);
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all ease-out .3s;
+}
+.decide-button:hover {
+    background-color: #90e0ef;
+    transition: all ease .3s;
+    color: rgb(71, 71, 255);
+}
+.response {
+    padding: 1em;
+    border: 2px solid gray;
+    width: auto;
+    border-radius: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.credits {
+    color: rgba(128, 128, 128, 0.771);
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    left: -1em;
+    font-size: 14px;
+    bottom: 0;
+    width: 100%;
+}
+.contact {
+    display: flex;
+    flex-direction: column;
+    font-size: 2em;
+    color: blue;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 10px;
+    transition: all ease-in .3s;
+}
+.contact #messenger:hover {
+    color: purple;
+    transition: all ease-in .3s;
+}
+.contact i {
+    padding: 5px;
+}
+@media only screen and (max-width: 767px) {
+    .container {
+        position: relative;
+        padding: 0;
+    }
+}
