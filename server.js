@@ -8,17 +8,23 @@ const bodyParser = require('body-parser');
 
 // Connect to MongoDB
 mongoose.set('strictQuery', false);
-const connectDB = async() => {
-  try{
+const connectDB = async () => {
+  try {
     await mongoose.connect(process.env.MONGO_URI);
-  }catch(err){
-    console.log(err);
+    console.log('Connected to MongoDB');
+    // Start the server after successful connection
+    app.listen(3000, () => {
+      console.log('Server started on port 3000');
+    });
+  } catch (err) {
+    console.error('Error connecting to MongoDB:', err);
     process.exit(1);
   }
-}
+};
 
+// Call the connectDB function
 connectDB()
-  .then(() => {
+  .then((res) => {
     console.log('Connected to MongoDB');
   })
   .catch((err) => {
