@@ -23,8 +23,9 @@ const connectDB = async () => {
 };
 
 // Call the connectDB function
+
 connectDB()
-  .then((res) => {
+  .then(() => {
     console.log('Connected to MongoDB');
   })
   .catch((err) => {
