@@ -1,30 +1,13 @@
-require('dotenv').config();
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const dbURI = 'mongodb+srv://vince:vince123@cluster0.vycwj80.mongodb.net/BlogData?retryWrites=true&w=majority&appName=Cluster0';
 const BLOG = require('./models/blog');
 const bodyParser = require('body-parser');
 
 // Connect to MongoDB
-mongoose.set('strictQuery', false);
-const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URI);
-    console.log('Connected to MongoDB');
-    // Start the server after successful connection
-    app.listen(3000, () => {
-      console.log('Server started on port 3000');
-    });
-  } catch (err) {
-    console.error('Error connecting to MongoDB:', err);
-    process.exit(1);
-  }
-};
-
-// Call the connectDB function
-
-connectDB()
+mongoose.connect(dbURI)
   .then(() => {
     console.log('Connected to MongoDB');
   })
@@ -72,7 +55,6 @@ app.get('/', async (req, res) => {
   } catch (err) {
     console.error('Error fetching blogs:', err);
     res.status(500).send('Internal server error');
-    res.send(morgan('dev'))
   }
 });
 
